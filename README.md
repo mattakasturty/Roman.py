@@ -15,4 +15,26 @@ Roman numerals support the following operations:
 
 Integers may also be used as one of the operands.
 
+Usage:
+
+	>>> from roman import *
+	>>> I
+	Roman(1)
+	>>> XXX
+	Roman(30)
+	>>> a = Roman(20)
+	>>> a
+	Roman(20)
+	>>> print(a)
+	XX
+	>>> b = Roman(23)
+	>>> print(a+b)
+	XLIII
+	>>> b + 45
+	Roman(68)
+	>>> a == b
+	False
+
+
+
 

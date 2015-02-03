@@ -1,10 +1,18 @@
 #roman.py
 from math import *
 
-#Roman Class
+
 class Roman:
-    #Constructor - Complete
+    """
+    Roman Class
+    """
+    
     def __init__(self, x):
+        """
+        Roman Class Constructor. Roman(x)
+        x is an integer that's absolute value is less than 2,000,000
+        """
+        
         if(type(x) != int):
             raise ValueError("For Roman(x), x MUST be an integer")          
         if(2000000 < abs(x)):
@@ -18,7 +26,6 @@ class Roman:
     def __str__(self):
         return self.dataString
 
-#Function that converts integer to roman numeral--------------COMPLETE-------------------------------------    
     def intToRoman(self, x):
         temp = x        
         s = ""
@@ -117,9 +124,7 @@ class Roman:
             s += "I"
             temp -= 1
         return s
-#End intToRoman-------------------------------------------------------------------------------------------------------
-#Arithmatic Operations------------------------------------------Complete----------------------------------------------
-    #Addition - Complete      
+    
     def __add__(self, other):
         if(type(other) == Roman):        
             return Roman(self.dataInt + other.dataInt)
@@ -130,7 +135,7 @@ class Roman:
     def __radd__(self, other):
         return self.__add__(other)
 
-    #Subtraction - Complete
+
     def __sub__(self, other):
         if(type(other) == Roman):        
             return Roman(self.dataInt - other.dataInt)
@@ -146,7 +151,6 @@ class Roman:
         else:
             raise ValueError("- used incorrectly")
 
-    #Multiplication - Complete
     def __mul__(self, other):
         if(type(other) == Roman):        
             return Roman(self.dataInt * other.dataInt)
@@ -157,7 +161,6 @@ class Roman:
     def __rmul__(self, other):
         return self.__mul__(other)   
 
-    #Floor div "//"- Complete
     def __floordiv__(self, other):
         if(type(other) == Roman):        
             return Roman(self.dataInt // other.dataInt)
@@ -173,7 +176,6 @@ class Roman:
         else:
             raise ValueError("// used incorrectly")
 
-    #True div "/"- Complete
     def __truediv__(self, other):
         if(type(other) == Roman):        
             return (Roman(self.dataInt // other.dataInt), Roman(self.dataInt % other.dataInt))
@@ -189,7 +191,6 @@ class Roman:
         else:
             raise ValueError("/ used incorrectly")
 
-    #Pow ** - Complete
     def __pow__(self, other):
         if(type(other) == Roman):        
             return Roman(self.dataInt ** other.dataInt)
@@ -205,10 +206,6 @@ class Roman:
         else:
             raise ValueError("** used incorrectly")
 
-
-#End Arithmatic Operations--------------------------------------------------------------------------------------------    
-#BOOL OPS---------------------------------------------------------Complete--------------------------------------------
-    #Equality comparison - COMPLETE
     def __eq__(self, other):
         if(type(other) == Roman):            
             if(self.dataInt == other.dataInt):
@@ -222,8 +219,7 @@ class Roman:
                 return False
         else:
             raise ValueError("== used incorrectly")
-    
-    #Nonequality comparison - COMPLETE    
+ 
     def __ne__(self, other):
         if(type(other) == Roman):            
             if(self.dataInt != other.dataInt): return True
@@ -233,8 +229,7 @@ class Roman:
             else: return False
         else:
             raise ValueError("!= used incorrectly")
-    
-    #Less than comparison - Complete
+
     def __lt__(self, other):       
         if(type(other) == Roman):            
             if(self.dataInt < other.dataInt):
@@ -249,7 +244,6 @@ class Roman:
         else:
             raise ValueError("< used incorrectly")
     
-    #Less than or equal to comparison - Complete
     def __le__(self, other):
         if(type(other) == Roman):            
             if(self.dataInt <= other.dataInt):
@@ -264,7 +258,6 @@ class Roman:
         else:
             raise ValueError("<= used incorrectly")
     
-    #Greater than or equal to comparison - Complete
     def __ge__(self, other):
         if(type(other) == Roman):            
             if(self.dataInt >= other.dataInt):
@@ -279,7 +272,6 @@ class Roman:
         else:
             raise ValueError(">= used incorrectly")
     
-    #Greater than comparison - Complete
     def __gt__(self, other):
         if(type(other) == Roman):            
             if(self.dataInt > other.dataInt):
@@ -293,13 +285,10 @@ class Roman:
                 return False
         else:
             raise ValueError("> used incorrectly")
-#End Bool Ops--------------------------------------------------------------------------------------------------------
-#Unary arithmatic------------------------------------COMPLETED
-    #Neg - COMPLETE
+
     def __neg__(self):
         return Roman(-1 * self.dataInt)
 
-#Define 0 to 1000 in Roman---------------------------COMPLETED
 for i in range(0, 1001, 1):
     G = globals()
     G[Roman(i).dataString] = Roman(i)
